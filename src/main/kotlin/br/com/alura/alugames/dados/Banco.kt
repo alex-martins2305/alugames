@@ -1,4 +1,4 @@
-package br.com.alura.alugames.DADOS
+package br.com.alura.alugames.dados
 
 import javax.persistence.EntityManager
 import javax.persistence.EntityManagerFactory

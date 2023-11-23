@@ -5,7 +5,7 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "jogos")
-data class Jogo(@Expose val titulo:String, @Expose val capa:String): Recomendavel {
+data class Jogo(@Expose var titulo:String, @Expose val capa:String): Recomendavel {
     var descricao: String? = null
     var preco = 0.0
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,7 +14,7 @@ data class Jogo(@Expose val titulo:String, @Expose val capa:String): Recomendave
     private val listaNotas = mutableListOf<Int>()
     override val media: Double
         get() = listaNotas.average()
-
+    constructor():this("","") //constructor é obrigatório da class Entity.
     constructor(titulo: String, capa: String, preco: Double, descricao: String, id:Int = 0) :
             this(titulo,capa) {
                 this.preco=preco

@@ -2,8 +2,9 @@ package br.com.alura.alugames.modelo
 
 import java.time.LocalDate
 import java.util.Scanner
+import javax.persistence.Entity
+import javax.persistence.Table
 import kotlin.random.Random
-
 data class Gamer(var nome:String, var email:String):Recomendavel {
     var dataNascimento:String? = null
     var usuario:String? = null
@@ -54,14 +55,14 @@ data class Gamer(var nome:String, var email:String):Recomendavel {
     }
 
     override fun toString(): String {
-        return "Gamer:\n"+
-                "nome=$nome\n"+
-                "email=$email\n"+
-                "dataNascimento=$dataNascimento\n"+
-                "usuario=$usuario\n"+
-                "idInterno=$idInterno)\n"+
-                "Reputação=${String.format("%.2f",media)}"+
-                "Id: $id"
+        return "\nGamer:\n"+
+                "nome= $nome\n"+
+                "email= $email\n"+
+                "dataNascimento= $dataNascimento\n"+
+                "usuario= $usuario\n"+
+                "idInterno= $idInterno\n"+
+                "Reputação= ${String.format("%.2f",media)}"+
+                "Id: $id\n"
     }
 
     fun criarIdInterno() {

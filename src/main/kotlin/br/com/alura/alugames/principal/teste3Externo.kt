@@ -1,11 +1,21 @@
+import br.com.alura.alugames.dados.Banco
+import br.com.alura.alugames.dados.JogosDAO
 import br.com.alura.alugames.modelo.Jogo
-import br.com.alura.alugames.DADOS.jogosDAO
 
 fun main() {
-    val jogoTeste1=Jogo("Teste22","Teste22",10.1, "Teste22", 6)
-    val jogoDAO= jogosDAO()
-    //jogoDAO.adicionarJogo(jogoTeste1)
+    val jogo = Jogo("The Last of Us Part I", "https://cdn.cloudflare.steamstatic.com/steam/apps/1888930/header.jpg?t=1686864554", 5.99,"Uma aventura pós-apocalíptica de sobrevivência em um mundo infestado por zumbis e facções em conflito.",10)
+    val jogo2 = Jogo("Dandara", "https://cdn.cloudflare.steamstatic.com/steam/apps/612390/header.jpg?t=1674055293", 9.99,"Um jogo de plataforma e ação com elementos de metroidvania, onde você controla a heroína Dandara em sua luta para libertar um mundo repleto de opressão e tirania.",11)
+    val jogo3 = Jogo("teste3", "https://cdn.cloudflare.steamstatic.com/steam/apps/612390/header.jpg?t=1674055293", 9.99,"Um jogo de plataforma e ação com elementos de metroidvania, onde você controla a heroína Dandara em sua luta para libertar um mundo repleto de opressão e tirania.",20)
+    val manager = Banco.getEntityManager()
+    val jogoDAO= JogosDAO(manager)
+
+    jogoDAO.adicionarJogo(jogo)
+    jogoDAO.adicionarJogo(jogo2)
+    jogoDAO.adicionarJogo(jogo3)
+    jogoDAO.updateJogo(jogo3)
+
     val listaJogos:List<Jogo> =jogoDAO.getJogos()
+    manager.close()
 
     println(listaJogos)
 }
